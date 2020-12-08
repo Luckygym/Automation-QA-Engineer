@@ -10,3 +10,4 @@
 ## Что бы запустиль Allure:<br/>
 ### С папки bin
     allure serve *cd to target\allure-results*
+     
