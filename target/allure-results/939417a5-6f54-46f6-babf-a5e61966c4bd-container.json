@@ -1,1 +1,0 @@
-{"uuid":"939417a5-6f54-46f6-babf-a5e61966c4bd","name":"Welcome","children":["c35d993a-f22e-4c6c-a918-8d8a7716dbbb"],"befores":[{"name":"openSuite","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1607067268043,"stop":1607067301809}],"afters":[],"links":[],"start":1607067268029,"stop":1607067314186}

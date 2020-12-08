@@ -1,1 +1,0 @@
-{"uuid":"f5699432-c08b-4d1c-8b8e-664cb6f1f989","name":"Medecine","children":["1ef46325-97a1-4021-a70f-c52e8d05f83b"],"befores":[],"afters":[{"name":"closeTest","status":"broken","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1607088257219,"stop":1607088257220}],"links":[],"start":1607088257214,"stop":1607088257224}

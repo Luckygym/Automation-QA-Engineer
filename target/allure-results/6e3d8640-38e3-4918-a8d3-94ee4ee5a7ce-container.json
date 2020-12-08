@@ -1,1 +1,0 @@
-{"uuid":"6e3d8640-38e3-4918-a8d3-94ee4ee5a7ce","name":"LogOut","children":["c2b73d00-5297-490e-89d9-6ca9a91a93ad"],"befores":[],"afters":[{"name":"closeTest","status":"broken","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1607088257197,"stop":1607088257197}],"links":[],"start":1607088257192,"stop":1607088257202}
