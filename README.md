@@ -6,8 +6,4 @@
   ### Для запуска через FireFox:<br/>
     mvn -Dbrowser=Fire test 
   или любое, отличное от Chrome.<br/>
-    
-## Что бы запустиль Allure:<br/>
-### С папки bin
-    allure serve *cd to target\allure-results*
      
