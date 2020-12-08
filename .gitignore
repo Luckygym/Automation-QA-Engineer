@@ -3,5 +3,5 @@
 /bin/
 /config/
 /lib/
-Welcome.iml
-debug.log
+*.iml
+*.log
