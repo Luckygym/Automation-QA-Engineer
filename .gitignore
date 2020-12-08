@@ -1,0 +1,7 @@
+/allure-results/
+/.idea/
+/bin/
+/config/
+/lib/
+Welcome.iml
+debug.log
