@@ -8,8 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class LoginPage {
-    private static WebDriver driver;
+public class LoginPage extends AdditionalFunc {
 
     public LoginPage(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -22,7 +21,7 @@ public class LoginPage {
     @FindBy (xpath = "//*[@id=\"password\"]")
     private WebElement passInput;
 
-    @FindBy (xpath = "//*[@id=\"ember433\"]/div/form/div[2]/button")
+    @FindBy (css = ".btn-lg")
     private WebElement logButton;
 
     @FindBy (css = ".alert")

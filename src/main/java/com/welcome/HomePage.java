@@ -13,8 +13,7 @@ import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
-public class HomePage {
-    public static WebDriver driver;
+public class HomePage extends AdditionalFunc {
 
     public HomePage(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -22,23 +21,19 @@ public class HomePage {
     }
 
     @FindBy (linkText = "Inventory")
-    private static WebElement inventory;
+    private WebElement inventory;
 
     @FindBy (css = ".settings-trigger ")
-    private static WebElement cogWheel;
+    private WebElement cogWheel;
 
     @FindBy (css = ".logout")
-    private static WebElement logoutButton;
+    private WebElement logoutButton;
 
-    //@FindBy (css = "#/medication")
     @FindBy (xpath = "//*[@id=\"ember767\"]")
-    private static WebElement medicationButton;
-
+    private WebElement medicationButton;
 
     public HomePage checkHome(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.urlContains("patients"));
-        System.out.println(driver.getCurrentUrl());
+        waitUntillUrl("patients");
         Assert.assertTrue(driver.getCurrentUrl().contains("patients"));
         return this;
     }

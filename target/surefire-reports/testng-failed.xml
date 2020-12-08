@@ -5,9 +5,9 @@
     <classes>
       <class name="com.welcome.Medication">
         <methods>
-          <include name="loginTest"/>
           <include name="medicationTest"/>
           <include name="closeTest"/>
+          <include name="openSuite"/>
         </methods>
       </class> <!-- com.welcome.Medication -->
     </classes>

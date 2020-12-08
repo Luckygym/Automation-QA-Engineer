@@ -11,30 +11,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class SuccessLogin {
-
-    private static WebDriver driver;
-    private static LoginPage loginPage;
-    private static HomePage homePage;
-    private String baseUrl = "http://demo.hospitalrun.io/";
-    private String name = "hr.doctor@hospitalrun.io";
-    private String pass = "HRt3st12";
-
-    @BeforeTest
-    @Parameters("browser")
-    public void openSuite(String browser) {
-        if (browser.contains("Chrome")) {
-            System.setProperty("webdriver.driver.chrome", "chromedriver.exe");
-            driver = new ChromeDriver();
-        }else{
-            System.setProperty("webdriver.driver.firefox","geckodriver.exe");
-            driver = new FirefoxDriver();
-        }
-
-        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
-        driver.get(baseUrl);
-        loginPage = new LoginPage(driver);
-    }
+public class SuccessLogin extends BaseTest {
 
     @Test
     public void loginTest() {
@@ -42,10 +19,5 @@ public class SuccessLogin {
                 .successLogin(name,pass)
                 .checkHome();
 
-    }
-
-    @AfterTest
-    public void closeTest(){
-        driver.quit();
     }
 }
