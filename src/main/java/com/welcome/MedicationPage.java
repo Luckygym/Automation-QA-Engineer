@@ -1,26 +1,17 @@
 package com.welcome;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.util.*;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.jar.JarOutputStream;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class MedicationPage extends AdditionalFunc {
+public class MedicationPage extends BasePage {
 
     public MedicationPage(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -39,13 +30,15 @@ public class MedicationPage extends AdditionalFunc {
     @FindBy (linkText = "Return Medication")
     private WebElement returnMedication;
 
-    @FindBy (id = "patientTypeAhead-ember1321")
+    //@FindBy (xpath = "//*[starts-with(@id, 'patientTypeAhead')]")
+    @FindBy (css = "[id^=\"patientTypeAhead\"]")
     private WebElement patientLabel;
 
     @FindBy (id = "ember1357")
     private WebElement labelClick;
 
-    @FindBy (id = "inventoryItemTypeAhead-ember1388")
+    //@FindBy (xpath = "//*[starts-with(@id, 'inventoryItemTypeAhead')]")
+    @FindBy (css = "[id^='inventoryItemTypeAhead']")
     private WebElement  medicationLabel;
 
     @FindBy (css  = "div.tt-suggestion.tt-selectable")
@@ -57,10 +50,12 @@ public class MedicationPage extends AdditionalFunc {
     @FindBy (css = ".tt-dataset-0")
     private WebElement tab;
 
-    @FindBy (id = "prescription-ember1420")
+    @FindBy (xpath = "//*[starts-with(@id, 'prescription')]")
+    //@FindBy (css = "//*[id^='prescription'")
     private WebElement prescriptions;
 
-    @FindBy (id = "display_prescriptionDate-ember1443")
+    @FindBy (xpath = "//*[starts-with(@id, 'display_prescriptionDate')]")
+    //@FindBy (xpath = "//$[id$='Date'")
     private WebElement data;
 
     @FindBy (css = ".pika-single")
@@ -72,10 +67,12 @@ public class MedicationPage extends AdditionalFunc {
     @FindBy (css = ".btn.on-white")
     private WebElement addBtn;
 
-    @FindBy (id = "quantity-ember1462")
+    @FindBy (xpath = "//*[starts-with(@id, 'quantity')]")
+    //@FindBy (css = "//^[id*=quantity]")
     private WebElement qR;
 
-    @FindBy (id = "refills-ember1469")
+    @FindBy (xpath = "//*[starts-with(@id, 'refills')]")
+    //@FindBy (css = "//^[id*=refills]")
     private WebElement refils;
 
     @FindBy (css = ".octicon-x")
@@ -87,16 +84,17 @@ public class MedicationPage extends AdditionalFunc {
     @FindBy (css = "button.on-white")
     private WebElement addBtn1;
 
+    @Step("Medication contains: Completed, Request, New Request, Return Medication")
     public MedicationPage isContains() {
         System.out.println(completed.isDisplayed() && requests.isDisplayed() && newRequests.isDisplayed() && returnMedication.isDisplayed());
         Assert.assertTrue(completed.isDisplayed());
         return this;
     }
-
+    @Step("Setting new request")
     public MedicationPage setNewRequests() {
           newRequests.click();
 
-        typeWord("Test Patient", patientLabel,500);
+        typeWord("Test Patient", patientLabel,600);
         selectDrop(patientList,"- P00201");
 
         typeWord("Pramoxine",medicationLabel,100);
@@ -112,26 +110,25 @@ public class MedicationPage extends AdditionalFunc {
         addBtn.click();
         return this;
     }
-
+    @Step("Confirm all button is enabled")
     public MedicationPage assertConfirm(){
+
         System.out.println(cross.isEnabled() && addButtonConfirm.isEnabled());
         Assert.assertTrue(cross.isEnabled() && addButtonConfirm.isEnabled());
 
         waitUntilClickable(cross);
         cross.click();
 
-
         Actions actions = new Actions(driver);
+
         waitUntilClickable(addBtn1);
         actions.moveToElement(addBtn1).click();
-        //addBtn1.click();
 
         waitUntilClickable(addBtn);
-        addBtn.click();
-
+        actions.moveToElement(addBtn).click();
         return this;
     }
-
+    @Step("Confirm new request page")
     public MedicationPage confirmPop(){
         Assert.assertTrue(driver.getCurrentUrl().contains("new"));
         return this;

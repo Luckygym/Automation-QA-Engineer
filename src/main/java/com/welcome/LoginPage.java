@@ -1,5 +1,7 @@
 package com.welcome;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class LoginPage extends AdditionalFunc {
+public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -27,13 +29,17 @@ public class LoginPage extends AdditionalFunc {
     @FindBy (css = ".alert")
     private WebElement errorMessage;
 
+    @Step("Success Login")
     public HomePage successLogin(String login, String pass) {
+            logInput.clear();
             logInput.sendKeys(login);
+            passInput.clear();
             passInput.sendKeys(pass);
             logButton.click();
             return new HomePage(driver);
     }
 
+    @Step("Success Login")
     public LoginPage errorLogin(String login, String pass) {
         logInput.sendKeys(login);
         passInput.sendKeys(pass);
@@ -41,14 +47,16 @@ public class LoginPage extends AdditionalFunc {
         return new LoginPage(driver);
     }
 
+    @Step("Error")
     public LoginPage checkMessage(String error){
         System.out.println(errorMessage.getText());
         Assert.assertTrue(errorMessage.getText().contains(error));
         return this;
     }
 
+    @Step("Check Url")
     public LoginPage checkUrl(String url){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 1);
         wait.until(ExpectedConditions.urlContains(url));
         System.out.println(driver.getCurrentUrl());
         Assert.assertTrue(driver.getCurrentUrl().contains(url));
