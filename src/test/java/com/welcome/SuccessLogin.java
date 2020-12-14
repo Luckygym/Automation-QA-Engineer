@@ -18,7 +18,7 @@ public class SuccessLogin extends BaseTest {
     @Description("Login test")
     public void loginTest() {
         homePage = loginPage
-                .successLogin(name + "1", pass)
+                .successLogin(name, pass)
                 .checkHome();
     }
 
