@@ -49,6 +49,7 @@ public class LoginPage extends BasePage {
 
     @Step("Error")
     public LoginPage checkMessage(String error){
+        System.out.println("---------------------------------------------------------------");
         System.out.println(errorMessage.getText());
         Assert.assertTrue(errorMessage.getText().contains(error));
         return this;
