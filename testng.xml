@@ -8,19 +8,19 @@
             <class name="com.welcome.SuccessLogin"></class>
         </classes>
     </test>
-<!--    <test name="LogOut">-->
-<!--        <classes>-->
-<!--            <class name="com.welcome.LogOut"></class>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test name="FailLogin">-->
-<!--        <classes>-->
-<!--            <class name="com.welcome.FailLogIn"></class>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test name="Medecine">-->
-<!--        <classes>-->
-<!--            <class name="com.welcome.Medication"></class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="LogOut">
+        <classes>
+            <class name="com.welcome.LogOut"></class>
+        </classes>
+    </test>
+    <test name="FailLogin">
+        <classes>
+            <class name="com.welcome.FailLogIn"></class>
+        </classes>
+    </test>
+    <test name="Medecine">
+        <classes>
+            <class name="com.welcome.Medication"></class>
+        </classes>
+    </test>
 </suite>
