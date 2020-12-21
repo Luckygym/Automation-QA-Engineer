@@ -18,7 +18,7 @@ public class HomePage extends BasePage {
     @FindBy (linkText = "Inventory")
     private WebElement inventory;
 
-    @FindBy (css = ".settings-trigger ")
+    @FindBy (css = ".mega-octicon.octicon-gear")
     private WebElement cogWheel;
 
     @FindBy (css = ".logout")
