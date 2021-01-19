@@ -16,7 +16,7 @@ public class SuccessLogin extends BaseTest {
 
     @Test(retryAnalyzer = com.welcome.RetryTests.class)
     @Description("Login test")
-    public void loginTest() {
+    public void loginTest() throws Exception {
         homePage = loginPage
                 .successLogin(name, pass)
                 .checkHome();

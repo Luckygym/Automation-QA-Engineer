@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class Medication extends BaseTest {
 
     @Test(retryAnalyzer = com.welcome.RetryTests.class)
-    public void medicationTest() {
+    public void medicationTest() throws Exception {
            homePage = loginPage.successLogin(name, pass);
            medicationPage = homePage.medicationButtonClick();
            medicationPage
