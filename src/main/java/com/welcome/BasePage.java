@@ -3,13 +3,17 @@ package com.welcome;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
@@ -64,5 +68,19 @@ public class BasePage extends DriverFactory {
         WebDriverWait wait = new WebDriverWait(driver,3);
         System.out.println(driver.getCurrentUrl());
         wait.until(ExpectedConditions.urlContains(s));
+    }
+
+
+    public static File foto(WebDriver driver, WebElement element) throws Exception {
+        // Делаем скриншот страницы
+        File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+        BufferedImage img = ImageIO.read(screen);
+        Rectangle rectangle=new Rectangle(element.getLocation().x,element.getLocation().y,element.getSize().height,element.getSize().width);
+        BufferedImage image=img.getSubimage(rectangle.x,rectangle.y,rectangle.width,rectangle.height);
+        ImageIO.write(image, "png", screen);
+        FileUtils.copyFile(screen, new File("D:\\git\\screen1.png"));
+        System.out.println("###############################################");
+        return screen;
     }
 }

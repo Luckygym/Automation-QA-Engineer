@@ -2,11 +2,14 @@ package com.welcome;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+
+import java.util.TreeMap;
 
 public class HomePage extends BasePage {
 
@@ -17,6 +20,9 @@ public class HomePage extends BasePage {
 
     @FindBy (linkText = "Inventory")
     private WebElement inventory;
+
+    @FindBy(linkText =  "Billing")
+    private WebElement bill;
 
     @FindBy (css = ".settings-trigger ")
     private WebElement cogWheel;
@@ -43,6 +49,11 @@ public class HomePage extends BasePage {
     public MedicationPage medicationButtonClick(){
         medicationButton.click();
         return new MedicationPage(driver);
+    }
+    public PatientPage clickPatient(){
+            JavascriptExecutor js=(JavascriptExecutor)driver;
+            js.executeScript("arguments[0].click();", bill);
+            return new PatientPage();
     }
 
 }
