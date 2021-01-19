@@ -49,6 +49,7 @@ public class LoginPage extends BasePage {
 
     @Step("Error")
     public LoginPage checkMessage(String error){
+        System.out.println("---------------------------------------------------------------");
         System.out.println(errorMessage.getText());
         Assert.assertTrue(errorMessage.getText().contains(error));
         return this;
@@ -57,9 +58,13 @@ public class LoginPage extends BasePage {
     @Step("Check Url")
     public LoginPage checkUrl(String url){
         WebDriverWait wait = new WebDriverWait(driver, 1);
+        System.out.println("--------------------------------------------");
         wait.until(ExpectedConditions.urlContains(url));
+        System.out.println("--------------------------------------------");
         System.out.println(driver.getCurrentUrl());
+        System.out.println("--------------------------------------------");
         Assert.assertTrue(driver.getCurrentUrl().contains(url));
+        System.out.println("--------------------------------------------");
         return this;
     }
 }

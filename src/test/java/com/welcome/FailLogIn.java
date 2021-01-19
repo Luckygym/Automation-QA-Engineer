@@ -15,6 +15,7 @@ public class FailLogIn extends BaseTest {
 
     @Test(retryAnalyzer = com.welcome.RetryTests.class)
     public void errorLoginTest(){
+        System.out.println("====================================================");
             loginPage
                     .errorLogin(failName, failPass)
                     .checkUrl("login")

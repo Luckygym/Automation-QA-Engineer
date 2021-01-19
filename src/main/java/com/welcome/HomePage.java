@@ -21,10 +21,14 @@ public class HomePage extends BasePage {
     @FindBy (linkText = "Inventory")
     private WebElement inventory;
 
+<<<<<<< HEAD
     @FindBy(linkText =  "Billing")
     private WebElement bill;
 
     @FindBy (css = ".settings-trigger ")
+=======
+    @FindBy (css = ".mega-octicon.octicon-gear")
+>>>>>>> 3b14a709c07793a6d8fcbe258dc105a36bde6e2b
     private WebElement cogWheel;
 
     @FindBy (css = ".logout")
