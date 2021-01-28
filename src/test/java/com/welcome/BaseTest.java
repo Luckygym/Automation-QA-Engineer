@@ -32,7 +32,6 @@ public class BaseTest extends DriverFactory implements ITestListener {
     protected static HomePage homePage;
     public static MedicationPage medicationPage;
     protected String baseUrl = "http://demo.hospitalrun.io/";
-    protected String ppc= "https://login-dev.cheq-platform.com/?scopes=userpass&returnUrl=https%3A%2F%2Fclicktrue-dev.cheq-platform.com%2Fdashboard";
     protected String name = "hr.doctor@hospitalrun.io";
     protected String pass = "HRt3st12";
     protected String failName = "aaaa";
@@ -47,12 +46,11 @@ public class BaseTest extends DriverFactory implements ITestListener {
     public void openSuite(@Optional ("Chrome") String browser, @Optional("") String url) throws MalformedURLException {
         initDriver(browser,url);
         driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
-        //driver.get(baseUrl);
-        driver.get(ppc);
+        driver.get(baseUrl);
         loginPage = new LoginPage(driver);
     }
 
-   // @AfterTest
+    @AfterTest
     @Step("Close Suite")
     public void closeTest(){
         driver.quit();
