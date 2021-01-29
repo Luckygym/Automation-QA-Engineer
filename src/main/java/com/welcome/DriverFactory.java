@@ -17,7 +17,7 @@ public class DriverFactory {
     public static WebDriver driver;
 
     public void initDriver(String browser,String nodeURL,String system) throws MalformedURLException {
-        if (system == "unix") {
+        if (system.contains("unix")) {
             if (nodeURL.length() > 5) {
                 if (browser.contains("Chrome")) {
                     System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver");
