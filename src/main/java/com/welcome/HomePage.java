@@ -18,6 +18,7 @@ public class HomePage extends BasePage {
         this.driver = driver;
     }
 
+
     @FindBy (linkText = "Inventory")
     private WebElement inventory;
 
