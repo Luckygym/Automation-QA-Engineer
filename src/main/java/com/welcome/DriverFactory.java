@@ -29,6 +29,7 @@ public class DriverFactory {
                     System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver");
                     DesiredCapabilities capabilities = DesiredCapabilities.firefox();
                     FirefoxOptions options = new FirefoxOptions();
+                    options.addArguments("--remote-debugging-port=8080");
                     options.addArguments("--unlimited-storage");
                     options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
                     options.addArguments("start-maximized"); // open Browser in maximized mode
@@ -44,6 +45,7 @@ public class DriverFactory {
                     DesiredCapabilities capabilities = DesiredCapabilities.chrome();
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--unlimited-storage");
+                    options.addArguments("--remote-debugging-port=8080");
                     options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
                     options.addArguments("start-maximized"); // open Browser in maximized mode
                     options.addArguments("disable-infobars"); // disabling infobars
