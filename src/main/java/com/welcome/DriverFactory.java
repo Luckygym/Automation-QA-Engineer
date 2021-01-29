@@ -20,13 +20,13 @@ public class DriverFactory {
         if (system.contains("unix")) {
             if (nodeURL.length() > 5) {
                 if (browser.contains("Chrome")) {
-                    System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver");
+                    System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
                     DesiredCapabilities capabilities = DesiredCapabilities.chrome();
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--unlimited-storage");
                     driver = new RemoteWebDriver(new URL(nodeURL), capabilities);
                 } else {
-                    System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\geckodriver");
+                    System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver");
                     DesiredCapabilities capabilities = DesiredCapabilities.firefox();
                     FirefoxOptions options = new FirefoxOptions();
                     options.addArguments("--unlimited-storage");
@@ -34,7 +34,7 @@ public class DriverFactory {
                 }
             } else {
                 if (browser.contains("Chrome")) {
-                    System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver");
+                    System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
                     DesiredCapabilities capabilities = DesiredCapabilities.chrome();
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--unlimited-storage");
