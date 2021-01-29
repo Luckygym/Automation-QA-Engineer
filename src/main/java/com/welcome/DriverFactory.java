@@ -25,7 +25,7 @@ public class DriverFactory {
                 options.addArguments("--unlimited-storage");
                 driver = new RemoteWebDriver(new URL(nodeURL), capabilities);
             } else {
-                System.setProperty("webdriver.gecko.driver", "src//test//resources//geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\geckodriver.exe");
                 DesiredCapabilities capabilities = DesiredCapabilities.firefox();
                 FirefoxOptions options = new FirefoxOptions();
                 options.addArguments("--unlimited-storage");
