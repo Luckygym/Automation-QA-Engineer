@@ -41,10 +41,10 @@ public class BaseTest extends DriverFactory implements ITestListener {
 
 
     @BeforeTest(alwaysRun = true)
-    @Parameters({"browser","url"})
+    @Parameters({"browser","url","system"})
     @Step("Open Suite")
-    public void openSuite(@Optional ("Chrome") String browser, @Optional("") String url) throws MalformedURLException {
-        initDriver(browser,url);
+    public void openSuite(@Optional ("Chrome") String browser, @Optional("") String url,String system) throws MalformedURLException {
+        initDriver(browser,url, system);
         driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
         driver.get(baseUrl);
         loginPage = new LoginPage(driver);
