@@ -3,6 +3,7 @@
 <suite name="Welcome" parallel="false" thread-count="4">
 <!--    <parameter name="browser" value="Fire"></parameter>-->
     <parameter name="url" value=""></parameter>
+<!--    <parameter name="system" value="win"></parameter>-->
     <test verbose="1" name="Chrome">
         <classes>
             <class name="com.welcome.SuccessLogin"></class>
