@@ -41,10 +41,10 @@ public class DriverFactory {
                 driver = new ChromeDriver(options);
             } else {
                 System.setProperty("webdriver.gecko.driver", "src//test//resources//geckodriver.exe");
-                DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-                FirefoxOptions options = new FirefoxOptions();
-                options.addArguments("--unlimited-storage");
-                driver = new FirefoxDriver(options);
+               // DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+                //FirefoxOptions options = new FirefoxOptions();
+                //options.addArguments("--unlimited-storage");
+                driver = new FirefoxDriver(/*options*/);
             }
 
         }
